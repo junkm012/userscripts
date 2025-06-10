@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Animation Name
 // @namespace    https://github.com/junkm012/userscripts
-// @version      1.0.2
+// @version      1.0.3
 // @description  Add an animation to your name
 // @author       Matrix
 // @match        *://mpp.8448.space/*
@@ -25,7 +25,7 @@
 ;(function() {
     'use strict';
   let base_name = localStorage.getItem('mpp_base_name') || MPP.client.user.name
-  let frames = []
+    let frames = []
   let index = 0
   let is_paused = false
   let is_running = localStorage.getItem('mpp_is_running') === 'false' ? false : true
@@ -94,7 +94,9 @@
   base_name_input.value = base_name
   base_name_input.tabIndex = 0
   base_name_input.style.pointerEvents = "auto"
-  ["keydown","keypress","keyup"].forEach(evt => base_name_input.addEventListener(evt, e => e.stopPropagation()))
+  base_name_input.addEventListener("keydown", e => e.stopPropagation())
+  base_name_input.addEventListener("keypress", e => e.stopPropagation())
+  base_name_input.addEventListener("keyup", e => e.stopPropagation())
   base_name_input.addEventListener("input", function(e) {
     e.stopPropagation()
     base_name = this.value || ""
