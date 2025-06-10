@@ -10,9 +10,6 @@
 // @match        *://multiplayerpiano.dev/*
 // @match        *://smp.multiplayerpiano.top/*
 // @match        *://multiplayerpiano.top/*
-// @match        *://multiplayerpiano.net/*
-// @match        *://multiplayerpiano.org/*
-// @match        *://multiplayerpiano.com/*
 // @match        *://mpp.smp-meow.net/*
 // @match        *://smnmpp.hri7566.info:8430/*
 // @match        *://ompp.daniel9046.tk/*
