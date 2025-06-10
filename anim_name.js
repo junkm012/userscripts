@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Animation Name
 // @namespace    https://github.com/junkm012/userscripts
-// @version      1.0.8
+// @version      1.0.9
 // @description  Add an animation to your name
 // @author       Matrix
 // @match        *://mpp.8448.space/*
