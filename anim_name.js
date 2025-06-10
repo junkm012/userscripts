@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Animation Name
 // @namespace    https://github.com/junkm012/userscripts
-// @version      1.1.5
+// @version      1.1.6
 // @description  Add an animation to your name
 // @author       Matrix
 // @match        *://mpp.8448.space/*
@@ -68,14 +68,14 @@
     const host = document.createElement("div");
     host.id = "mpp-controller-host";
     host.style.position = "fixed";
-    host.style.bottom = "60px";
+    host.style.bottom = "90px";
     host.style.right = "20px";
     host.style.zIndex = "9999";
     host.style.pointerEvents = "auto";
     host.style.cursor = "move";
     document.body.append(host);
 
-    const shadow = host.attachShadow({ mode: "open" });
+    const shadow = host.attachShadow({ mode: "open", delegatesFocus: true });
     const style = document.createElement("style");
     style.textContent = `
       .controller { background: rgba(30,30,30,0.9); padding:12px; border-radius:8px; display:flex; flex-direction:column; gap:8px; font-family:sans-serif; color:#eee; pointer-events: auto; }
@@ -133,6 +133,17 @@
         }
     });
     container.append(base_name_input);
+
+    ['keydown', 'keypress', 'keyup'].forEach(evt => {
+        base_name_input.addEventListener(evt, e => {
+            e.stopPropagation();
+        }, { capture: true });
+    });
+    
+    base_name_input.addEventListener('focus', e => {
+        e.stopPropagation();
+    }, { capture: true });
+    
 
     function make_slider_control(label_text, min, max, initial, storage_key, oninput_fn) {
         const row = document.createElement("div");
