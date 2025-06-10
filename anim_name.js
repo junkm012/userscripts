@@ -203,12 +203,14 @@
     let is_dragging = false;
 
     host.addEventListener("mousedown", function (e) {
-        if (e.target.closest(".controller")) return;
+        const target = e.target;
+        if (target.tagName === 'INPUT' || target.tagName === 'BUTTON' || target.tagName === 'LABEL' || target.isContentEditable) return;
+
         is_dragging = true;
         offset_x = e.clientX - host.offsetLeft;
         offset_y = e.clientY - host.offsetTop;
         document.body.style.userSelect = "none";
-      });      
+    });
 
     window.addEventListener("mouseup", function () {
         is_dragging = false;
@@ -217,9 +219,22 @@
 
     window.addEventListener("mousemove", function (e) {
         if (!is_dragging) return;
-        host.style.left = `${e.clientX - offset_x}px`;
-        host.style.top = `${e.clientY - offset_y}px`;
+
+        let new_left = e.clientX - offset_x;
+        let new_top = e.clientY - offset_y;
+
+        const max_left = window.innerWidth - host.offsetWidth;
+        const max_top = window.innerHeight - host.offsetHeight;
+
+        if (new_left < 0) new_left = 0;
+        if (new_top < 0) new_top = 0;
+        if (new_left > max_left) new_left = max_left;
+        if (new_top > max_top) new_top = max_top;
+
+        host.style.left = `${new_left}px`;
+        host.style.top = `${new_top}px`;
         host.style.right = "auto";
         host.style.bottom = "auto";
     });
 })();
+
