@@ -40,7 +40,7 @@
 
   function compute_move_interval(value) {
         const maxInterval = 2000;
-        const minInterval = 50;
+        const minInterval = 1;
         const angle = (value / 10000) * (Math.PI / 2);
         return maxInterval * (1 - Math.sin(angle)) + minInterval;
     }
