@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Animation Name
 // @namespace    https://github.com/junkm012/userscripts
-// @version      1.0.3
+// @version      1.0.5
 // @description  Add an animation to your name
 // @author       Matrix
 // @match        *://mpp.8448.space/*
@@ -26,7 +26,7 @@
   let index = 0
   let is_paused = false
   let is_running = localStorage.getItem('mpp_is_running') === 'false' ? false : true
-  let raw_speed_value = Number(localStorage.getItem('mpp_speed')) || 300
+  let raw_speed_value = Number(localStorage.getItem('mpp_speed')) || 1000
   let raw_pause_value = Number(localStorage.getItem('mpp_pause')) || 2000
   let interval_id
 
@@ -131,7 +131,7 @@
     return row
   }
 
-  const speed_control = make_slider_control("speed", 50, 1000, raw_speed_value, 'mpp_speed', function() {
+  const speed_control = make_slider_control("speed", 50, 10000, raw_speed_value, 'mpp_speed', function() {
     raw_speed_value = Number(this.value)
     if (is_running) start_interval()
   })
