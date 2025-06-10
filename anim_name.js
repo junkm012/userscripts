@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Animation Name
 // @namespace    https://github.com/junkm012/userscripts
-// @version      1.0.6
+// @version      1.0.7
 // @description  Add an animation to your name
 // @author       Matrix
 // @match        *://mpp.8448.space/*
@@ -39,7 +39,7 @@
   }
 
   function compute_move_interval(value) {
-    let interval = 1050 - value / 10;
+    let interval = 10010 - value / 10;
     return Math.max(100, interval);
 }
 
