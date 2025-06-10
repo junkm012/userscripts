@@ -39,8 +39,9 @@
   }
 
   function compute_move_interval(value) {
-    return 1050 - value
-  }
+    let interval = 1050 - value / 10;
+    return Math.max(100, interval);
+}
 
   function update_name() {
     if (is_paused || !is_running || !window.MPP || !MPP.client) return
