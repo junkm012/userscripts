@@ -27,8 +27,8 @@
     let index = 0;
     let is_paused = false;
     let is_running = localStorage.getItem('mpp_is_running') === 'false' ? false : true;
-    let raw_speed_value = Number(localStorage.getItem('mpp_speed')) || 1000;
-    let raw_pause_value = Number(localStorage.getItem('mpp_pause')) || 2000;
+    let raw_speed_value = Number(localStorage.getItem('mpp_speed')) || 7500;
+    let raw_pause_value = Number(localStorage.getItem('mpp_pause')) || 1000;
     let interval_id;
 
     function rebuild_frames() {
