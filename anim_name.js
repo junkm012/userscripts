@@ -18,13 +18,13 @@
 // @match        *://ompp.daniel9046.tk/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=mpp.smp-meow.net
 // @grant        none
-// @updateURL    https://your-server.com/your-script.meta.js
-// @downloadURL  https://your-server.com/your-script.user.js
+// @updateURL    https://raw.githubusercontent.com/junkm012/userscripts/refs/heads/main/anim_name.js
+// @downloadURL  https://raw.githubusercontent.com/junkm012/userscripts/refs/heads/main/anim_name.js
 // ==/UserScript==
 
 ;(function() {
     'use strict';
-  let base_name = localStorage.getItem('mpp_base_name') || "Lenny :3"
+  let base_name = localStorage.getItem('mpp_base_name') || MPP.client.user.name
   let frames = []
   let index = 0
   let is_paused = false
