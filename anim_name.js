@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Animation Name
-// @namespace    http://tampermonkey.net/
-// @version      1.0.1
-// @description  MatrixOnly
+// @namespace    https://github.com/junkm012/userscripts
+// @version      1.0.2
+// @description  Add an animation to your name
 // @author       Matrix
 // @match        *://mpp.8448.space/*
 // @match        *://mpp.autoplayer.xyz/*
