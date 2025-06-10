@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Animation Name
 // @namespace    https://github.com/junkm012/userscripts
-// @version      1.0.9
+// @version      1.1.0
 // @description  Add an animation to your name
 // @author       Matrix
 // @match        *://mpp.8448.space/*
@@ -39,8 +39,10 @@
   }
 
   function compute_move_interval(value) {
-        let interval = 2000 - value / 5;
-        return Math.max(1, interval);
+        const maxInterval = 2000;
+        const minInterval = 50;
+        const angle = (value / 10000) * (Math.PI / 2);
+        return maxInterval * (1 - Math.sin(angle)) + minInterval;
     }
 
   function update_name() {
