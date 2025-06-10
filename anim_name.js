@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Animation Name
 // @namespace    https://github.com/junkm012/userscripts
-// @version      1.1.0
+// @version      1.1.5
 // @description  Add an animation to your name
 // @author       Matrix
 // @match        *://mpp.8448.space/*
@@ -203,8 +203,15 @@
     let is_dragging = false;
 
     host.addEventListener("mousedown", function (e) {
-        const target = e.target;
-        if (target.tagName === 'INPUT' || target.tagName === 'BUTTON' || target.tagName === 'LABEL' || target.isContentEditable) return;
+        const actualTarget = e.composedPath()[0];
+
+        if (
+            actualTarget.tagName === 'INPUT' ||
+            actualTarget.tagName === 'BUTTON' ||
+            actualTarget.tagName === 'LABEL'
+        ) {
+            return;
+        }
 
         is_dragging = true;
         offset_x = e.clientX - host.offsetLeft;
@@ -237,4 +244,3 @@
         host.style.bottom = "auto";
     });
 })();
-
