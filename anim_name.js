@@ -203,12 +203,12 @@
     let is_dragging = false;
 
     host.addEventListener("mousedown", function (e) {
-        if (e.target !== host) return;
+        if (e.target.closest(".controller")) return;
         is_dragging = true;
         offset_x = e.clientX - host.offsetLeft;
         offset_y = e.clientY - host.offsetTop;
         document.body.style.userSelect = "none";
-    });
+      });      
 
     window.addEventListener("mouseup", function () {
         is_dragging = false;
