@@ -40,7 +40,7 @@
 
   function compute_move_interval(value) {
         let interval = 2000 - value / 5;
-        return Math.max(50, interval);
+        return Math.max(1, interval);
     }
 
   function update_name() {
